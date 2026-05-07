@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+        <title>Happy Birthday Mama 🎀 </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Quicksand', sans-serif;
+                overflow: hidden;
+            }
+            .page {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #cover-page {
+                background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2, #ffb7c5, #ff85a1);
+                background-size: 400% 400%;
+                animation: gradientMove 8s ease infinite;
+            }
+            @keyframes gradientMove {
+                0% { background-position: 0% 50%;}
+                50% { background-position: 100% 50%;}
+                100% {background-position: 0% 50%;}
+            }
+            .cover-content {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .cover-title {
+                font-family: 'Great Vibes', cursive;
+                font-size: 6rem;
+                color: white;
+                text-shadow: 2px 2px 20px rgba(180, 60, 90, 0.3);
+            }
+            .cover-subtitle {
+                font-size: 1.1rem;
+                color: #4a0020;
+                line-height: 1.8;
+            }
+            .lets-go-btn  {
+                background: #c2185b;
+                color: white;
+                border: none;
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+                font-family: 'Quicksand', sans-serif;
+                font-weight: 600;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                box-shadow: 0 4px 20px rgba(194, 24, 91, 0.4);
+            }
+            .lets-go-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 25px rgba(194, 24, 91, 0.5);
+            }
+            #letters-page {
+            background: #fff0f5;
+            align-items: flex-start;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .letters-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .letters-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #c2185b;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .envelopes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .envelope-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .envelope-item:hover {
+            transform: scale(1.1);
+        }
+
+        .envelope {
+            font-size: 4rem;
+            filter: drop-shadow(0 4px 8px rgba(194, 24, 91, 0.2));
+        }
+
+        .envelope-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #880e4f;
+            text-align: center;
+        }
+        #letter-view {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2, #ffb7c5, #ff85a1);
+            background-size: 400% 400%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        .letter-view-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .back-btn {
+            background: #c2185b;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+        .home-btn {
+            background: #c2185b;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            align-self: center;
+            margin-top: 2rem;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.05);
+        }
+        .letter-view-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 700px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+
+        .paper-envelope {
+            font-size: 5rem;
+        }
+
+        .paper-card {
+            background: #fffdf9;
+            border-radius: 16px;
+            padding: 3rem;
+            width: 100%;
+            box-shadow: 0 8px 40px rgba(194, 24, 91, 0.15);
+            border: 1px solid #f4c0d1;
+        }
+
+        .paper-from {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #c2185b;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .paper-divider {
+            width: 60%;
+            height: 1px;
+            background: #f4c0d1;
+            margin: 0 auto 1.5rem;
+        }
+
+        .paper-text {
+            font-size: 1rem;
+            color: #4a0020;
+            line-height: 2;
+            white-space: pre-wrap;
+        }
+
+        .paper-photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .paper-photos img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #f4c0d1;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="cover-page" class="page">
+            <div class="cover-content">
+                <h1 class="cover-title">Happy Birthday<br>Mama 🌸</h1>
+                <p class="cover-subtitle">here are all the letters you received for your birthday,<br>saved so you can cherish them forever 💕</p>
+                <button class="lets-go-btn" onclick="showLettersPage()">Let's Go! ✨</button>
+            </div>
+        </div>
+        <div id="letters-page" class="page" style="display:none;">
+           <div class="letters-container">
+            <h1 class="letters-title">Letters For You! 💌</h1>
+            <div class="envelopes-grid">
+
+                <div class="envelope-item" onclick="openLetter(0)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Amino 🌺</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(1)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Felisha 💛</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(2)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Hiloni 🌸</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(3)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Annie 🌼</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(4)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Zaheer ⭐</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(5)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Suhail 🌙</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(6)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Saida 🌹</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(7)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Mama 💖</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(8)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Nilu 🦋</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(9)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Nurry 🤍</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(10)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Falu 🌿</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(11)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">everyone else's photos💜</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(12)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Sakina 🌷</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(13)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Sarah ✨</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(14)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Seif 🏅</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(15)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Shai Fui 🍀</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(16)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Shanu 🧡</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(17)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Tifu 💫</span>
+                </div>
+
+                <div class="envelope-item" onclick="openLetter(18)">
+                    <div class="envelope">✉️</div>
+                    <span class="envelope-name">Zoya 🌙</span>
+                </div>
+            </div>
+            <button class="home-btn" onclick="goHome()">🏠 Home</button>
+        </div>
+    </div>
+    <div id="letter-view" class="page" style="display:none;">
+        <div class="letter-view-container">
+            <div class="paper-envelope">✉️</div>
+            <div class="paper-card">
+                <h2 class="paper-from" id="letter-from-name"></h2>
+                <div class="paper-divider"></div>
+                <p class="paper-text" id="letter-body"></p>
+                <div class="paper-photos" id="letter-photos"></div>
+            </div>
+            <button class="back-btn" onclick="goBack()">← Back to Letters</button>
+        </div>
+    </div>
+        </div>
+    </div>
+        <script>
+            const letters = [
+            {
+                name: "Amino 🌺",
+                letter: "Happy Birthday Sania Bhabhi, the first and the best (Don't tell anyone else). Ever since you came into our family that afternoon when I was 6 or 7 years old, you have been making everyone's lives better. From buying me soda as a kid, to playing carrom and Sathiyo. From making caramel pudding to ordering checkers pizza every time I arrive. I truly appreciate every moment we have had together. I hope you live to see more of this world than you ever thought possible because the world is a better place with you in it. Have a great day, enjoy it to the fullest",
+                photos: []
+            },
+            {
+                name: "Felisha 💛",
+                letter: "Happy Birthday to the woman who started as my sister-in-law and quickly upgraded herself to bonus sister, confidante in times when needed, and certified rattansi khandhans superstar! 🎉✨\n\nI may not be intouch all the time, and at times even go AWOL lol but know that im greatful to have you in my life as not my bhabhi but a dear sister. We have shared many good memories together from the moment you tied the knot with falu, from living together, eid shopping for same same Punjabis, to going out late night in falus alteza, Saturday lunches, eid biriyanis, late night ghapshaps.. making falu stressed before his time lol.. I can say those were the most memorable moments in my life.\n\nNow we have grown older, less skinny then we used to be 🤪 and busier then before where life was so simple but in spite of the distance and lack of communication lol our bond is still the same as it used to be ages ago( I dont know how many years have passed 🤭)\n\nThank u for being the kind of person who brings good vibes and laughter wherever u go, who listens without judgement, loves without limits, and always taking my side even when im wrong. Falus home is more fun, louder, warmer, and far more interesting because you're in it—and I wouldn't trade you for anything not even my own brother.\n\nMay this year bring you laughter that makes your cheeks hurt, blessings that make your heart full, and surprises that are the kheir kind. May your days be joyful, your worries be small, and your celebrations be as fabulous as you are.\n\nHappy Birthday, sania! Never forget how loved you are—not just today, but always. Now go enjoy your day like the queen you are 👑🎂\n\nWith love and lots of birthday cheer,\nFelisha 😘😘😘😘😘",
+                photos: []
+            },
+            {
+                name: "Hiloni 🌸",
+                letter: "Dear Sania,\n\n17 years of knowing you, and it still feels like we're just two people who understand each other without needing to say much. We've shared so many moments the good, the messy, the serious, and the silly and through all of it, we've always had each other.\n\nYou are not just my sister-in-law, you are truly a sister from another mother. The way you care for my children and hold this family together means more to me than I can ever fully express.\n\nI honestly can't imagine life without you in it. You mean so much to me, in ways I don't always say out loud.\n\nWith all my love ❤️\nHiloni",
+                photos: []
+            },
+            {
+                name: "Annie 🌼",
+                letter: "My Dhingli My Mithi Sanu,\n\nHappy Birthday to the most beautiful storm I know.\n\nToday I celebrate you — not just for the years you've lived, but for the incredible person you are. You have one of the kindest hearts I've ever known. You give so much of yourself to the people you love, without expecting anything in return. Your generosity, your strength, and your loyalty are gifts that everyone around you is lucky to experience.\n\nYou are strong in ways many people don't even notice. Life has thrown challenges at you, yet you continue to stand tall, protect the people you love, and keep moving forward with courage. I admire that strength more than words can explain.\n\nAnd yes… you do have a temper like a volcano. Fierce, loud, impossible to ignore. But even your fire comes from passion, love, and the depth of your heart. That fire is part of what makes you unforgettable. It means you feel deeply, love deeply, and protect fiercely. I wouldn't change that about you even if I could.\n\nEven though miles separate us and we may be far from each other physically, you have always remained the closest person to my heart. Distance has never changed our bond. No matter where life takes us, I carry you with me every single day. You are not just my little sister — you are a piece of my soul.\n\nYou have given us one of the greatest blessings in this world - my beautiful nieces — Sarah, Naila, and Zoya. Those girls are pure light, love, and joy, and they are a reflection of the incredible mother and woman you are. They are my whole world, and loving them is one of the greatest gifts you have ever given me.\n\nAnd then of course… there's Falu who is older to me ofcourse. Honestly, any man who survives your volcanic temper deserves some kind of lifetime achievement award. We may joke about him, tease him endlessly, and blame him for random things for entertainment, but truthfully, having him in our lives has been such a blessing. Thank you for giving us a brother-in-law who loves you, stands by you, and somehow manages to keep up with all the madness in this family.\n\nNo matter how much we argue, laugh, annoy each other, or drive each other crazy sometimes, one thing will never change — I love you endlessly. I am grateful for every memory we share, every lesson, every laugh, and every moment that made us sisters and buddies for life.\n\nAs you turn 38, I hope life gives you back even a fraction of the love and goodness you pour into others every day. You deserve happiness, peace, success, and all the beautiful things your heart desires.\n\nKeep shining, keep fighting, keep loving, and keep being exactly who you are.\n\nHappy Birthday, my little one.\nI love you more than words will ever fully express.\n\nWith all my love,\nyour Didi Annie",
+                photos: []
+            },
+            {
+                name: "Zaheer ⭐",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Suhail 🌙",
+                letter: "Happy Birthday to my favorite lookout! I was thinking today about all those times we were 'studying' and I'd fall asleep, only for you to wake me up in a panic the second you heard the door opening. Thank you for saving me from so many scoldings back then—and for always being someone I can count on today. Love you!",
+                photos: []
+            },
+            {
+                name: "Saida 🌹",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Mama 💖",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Nilu 🦋",
+                letter: "Happy birthday to the woman who truly keeps our family together. Thank you for always being there for me whether I need advice or just someone to hear me. I am so lucky to have you here with me and to have someone who takes care of me and who cares for me more than themselves, the person who's a nurse when everyone gets sick, a person who is willing to give their everything to make sure everyone else is happy, a person who is always there and always understands and listens, a person to call your best friend. We may have our moments and we may argue a lot but at the end our love for eachother is always stronger than all the fights. I may not be your favorite or maybe I am? Who knows? But I will always have a bigger section for you in my heart. For my mama who used to come back home from work tired yet still sat down to make us eat with your hands, my mama who will sacrifice her needs and wants just to fulfill ours. Happy birthday to the best mama ever.\n\nLove,\n~ nilu💞",
+                photos: []
+            },
+            {
+                name: "Nurry 🤍",
+                letter: "Happy birthday to my daughter sania u are very adorable u are very kind hearted and u are the one of the best person love u so much mwaa. love u mingi mingi",
+                photos: []
+            },
+            {
+                name: "Falu 🌿",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Sabiha 💜",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Sakina 🌷",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Sarah ✨",
+                letter: "Dear mama,\n\nHappy birthday mama, writing this letter took a lot of writing and erasing because I wanted it to be perfect for you, I was honestly thinking of using chat gpt but then I realized that this letter doesn't have to be perfect it just needs to be authentic. I've been trying to find the right words to write this, and honestly no words can ever express how much you mean to me and everything you have done for not only me but our whole family. I know sometimes we don't express how grateful we are for you but I'm sure if you weren't in our life we would break down because you're the bond that's holding this whole family together.\n\nI don't this I will every fully understand how much you have sacrificed for our family, but I know it's a lot. I see the little things you do, things that people on the outside would miss. The way you put others before you, the way you make sure everyone in the family gets what they want even if it leads to you not getting what you want, you pushing away your needs and wants just to fulfil ours, the way you carry so much without even complaining, the way you take care of all of us when we are sick even though you are also sick, the way you manage to care for everyone even when you're tired. All these things are just the surface of what you do and if I went in depth about everything you did, I would have to write a whole book with multiple series.\n\nSometimes I sit and think what I would do without you in my life. When I go to Dubai, who will I run to when things get hard? Whose laps will I go to sleep on when I just returned from school? Who will I go see as soon as I come back from a horrible day at school? Who will I go to when I need a hug because my friends betrayed me? Who will take care of me when I'm sick? Who will sense my mood by just looking at me? And who will I do panchat with about things going on in school and at home? I don't think I say this enough mama, but I will miss you so much. I know I don't express this enough and I'm sorry for that.\n\nI wanted to also express how thankful I am for you mama. Thank you for everything you have done for me. Thank you for loving me the way you do, for believing in me and for always being there, even when sometimes I don't deserve it.\n\nI don't say this enough, but I truly don't know what I would do without you.\n\nI love you more than words will ever be able to explain.\n\nHappy birthday my sweet mama.\n\nLove you always,\nYour forever little baby Sarah.",
+                photos: []
+            },
+            {
+                name: "Seif 🏅",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Shai Fui 🍀",
+                letter: "Dear Sania - you are the sunshine in my life - providing that warmth / care and support much needed on a cold dark winter morning!!!!\n\nYou are my go to person!!!\n\nI wish you a very happy birthday and may Mowla Bapa always keep you under his protection.\n\nVery Many Happy Returns of the day!!!!\n\nBless you always\nShai Fui.",
+                photos: []
+            },
+            {
+                name: "Shanu 🧡",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Tifu 💫",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            },
+            {
+                name: "Zoya 🌙",
+                letter: "Letter coming soon... 💌",
+                photos: []
+            }
+        ];
+            function showLettersPage() {
+            document.getElementById('cover-page').style.display = 'none';
+            document.getElementById('letters-page').style.display = 'flex';
+        }
+        function openLetter(index) {
+            const letter = letters[index];
+            document.getElementById('letter-from-name').textContent = letter.name;
+            document.getElementById('letter-body').textContent = letter.letter;
+            
+            const photosDiv = document.getElementById('letter-photos');
+            photosDiv.innerHTML = '';
+            letter.photos.forEach(photo => {
+                const img = document.createElement('img');
+                img.src = photo;
+                photosDiv.appendChild(img);
+            });
+
+            document.getElementById('letters-page').style.display = 'none';
+            document.getElementById('letter-view').style.display = 'flex';
+        }
+        function goBack() {
+            document.getElementById('letter-view').style.display = 'none';
+            document.getElementById('letters-page').style.display = 'flex';
+        }
+
+        function goHome() {
+            document.getElementById('letter-view').style.display = 'none';
+            document.getElementById('letters-page').style.display = 'none';
+            document.getElementById('cover-page').style.display = 'flex';
+        }
+        </script>
+    </body>
+</html>
