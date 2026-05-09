@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f5ede0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+
+    .page {
+      background: #fdf8f2;
+      max-width: 640px;
+      width: 100%;
+      padding: 64px 72px;
+      position: relative;
+      box-shadow: 0 4px 40px rgba(120, 80, 30, 0.12), 0 1px 8px rgba(120, 80, 30, 0.08);
+      animation: fadeIn 1.2s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Double border frame */
+    .page::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px solid #c9a96e;
+      pointer-events: none;
+    }
+    .page::after {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 0.5px dashed #c9a96e;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Corner ornaments */
+    .corner {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+    }
+    .corner.tl { top: 8px; left: 8px; }
+    .corner.tr { top: 8px; right: 8px; transform: scaleX(-1); }
+    .corner.bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
+    .corner.br { bottom: 8px; right: 8px; transform: scale(-1); }
+
+    .date {
+      text-align: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      color: #a07840;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      max-width: 120px;
+      height: 0.5px;
+      background: #c9a96e;
+      opacity: 0.7;
+    }
+    .divider-diamond {
+      width: 6px;
+      height: 6px;
+      background: #c9a96e;
+      transform: rotate(45deg);
+      opacity: 0.8;
+    }
+
+    .salutation {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: #7a4f2d;
+      text-align: center;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .body-text {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #3d2b1a;
+      text-align: center;
+    }
+
+    .stanza {
+      margin-bottom: 28px;
+    }
+
+    .stanza:last-of-type {
+      margin-bottom: 36px;
+    }
+
+    .closing-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      opacity: 0.6;
+    }
+    .closing-divider::before,
+    .closing-divider::after {
+      content: '';
+      width: 60px;
+      height: 0.5px;
+      background: #c9a96e;
+    }
+    .closing-divider-dot {
+      width: 4px;
+      height: 4px;
+      background: #c9a96e;
+      border-radius: 50%;
+    }
+
+    .signature {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      color: #7a4f2d;
+      text-align: center;
+      font-style: italic;
+      line-height: 2;
+    }
+
+    .heart {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 12px;
+      color: #e8a0a0;
+    }
+
+    /* Floral SVG corners */
+    .corner svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 520px) {
+      .page { padding: 52px 36px; }
+      .body-text { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Corner ornaments -->
+    <div class="corner tl">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="6" fill="#e8a0a0" opacity="0.85"/>
+        <circle cx="12" cy="15" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="22" cy="11" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="29" cy="18" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="14" cy="26" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="20" cy="20" r="3.5" fill="#fde8c8"/>
+        <line x1="20" y1="26" x2="14" y2="38" stroke="#8fa86e" stroke-width="1.2"/>
+        <ellipse cx="11" cy="43" rx="7" ry="3.5" fill="#8fa86e" opacity="0.65" transform="rotate(-25 11 43)"/>
+      </svg>
+    </div>
+    <div class="corner tr">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="6" fill="#e8a0a0" opacity="0.85"/>
+        <circle cx="12" cy="15" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="22" cy="11" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="29" cy="18" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="14" cy="26" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="20" cy="20" r="3.5" fill="#fde8c8"/>
+        <line x1="20" y1="26" x2="14" y2="38" stroke="#8fa86e" stroke-width="1.2"/>
+        <ellipse cx="11" cy="43" rx="7" ry="3.5" fill="#8fa86e" opacity="0.65" transform="rotate(-25 11 43)"/>
+      </svg>
+    </div>
+    <div class="corner bl">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="6" fill="#e8a0a0" opacity="0.85"/>
+        <circle cx="12" cy="15" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="22" cy="11" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="29" cy="18" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="14" cy="26" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="20" cy="20" r="3.5" fill="#fde8c8"/>
+        <line x1="20" y1="26" x2="14" y2="38" stroke="#8fa86e" stroke-width="1.2"/>
+        <ellipse cx="11" cy="43" rx="7" ry="3.5" fill="#8fa86e" opacity="0.65" transform="rotate(-25 11 43)"/>
+      </svg>
+    </div>
+    <div class="corner br">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="6" fill="#e8a0a0" opacity="0.85"/>
+        <circle cx="12" cy="15" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="22" cy="11" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="29" cy="18" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="14" cy="26" r="4" fill="#f4bfbf" opacity="0.85"/>
+        <circle cx="20" cy="20" r="3.5" fill="#fde8c8"/>
+        <line x1="20" y1="26" x2="14" y2="38" stroke="#8fa86e" stroke-width="1.2"/>
+        <ellipse cx="11" cy="43" rx="7" ry="3.5" fill="#8fa86e" opacity="0.65" transform="rotate(-25 11 43)"/>
+      </svg>
+    </div>
+
+    <p class="date">17th May 2026</p>
+
+    <div class="divider"><div class="divider-diamond"></div></div>
+
+    <p class="salutation">My love,</p>
+
+    <div class="body-text">
+
+      <div class="stanza">
+        I have been trying to find the right words for you,<br>
+        and I keep coming back to this simple truth —<br>
+        you are the best thing that has ever happened to me.
+      </div>
+
+      <div class="stanza">
+        Since 2007, you have walked beside me through everything.<br>
+        The easy days and the difficult ones, the laughter<br>
+        and the tears, the ordinary Tuesdays and the moments<br>
+        that changed us forever. Through all of it, you were there.
+      </div>
+
+      <div class="stanza">
+        You have given me three daughters who carry your kindness,<br>
+        your grace, and your strength — and in them,<br>
+        I see you every single day.
+      </div>
+
+      <div class="stanza">
+        I want you to know that I do not take any of it for granted.<br>
+        Not your patience, not your sacrifice,<br>
+        and not the quiet, unwavering way you love our family.
+      </div>
+
+      <div class="stanza">
+        On your birthday, my wish is simply this —<br>
+        that you feel as loved and treasured today<br>
+        as you have made me feel every day for nearly twenty years.
+      </div>
+
+    </div>
+
+    <div class="closing-divider">
+      <div class="closing-divider-dot"></div>
+    </div>
+
+    <p class="signature">
+      Forever yours,<br>
+      your husband
+    </p>
+
+    <span class="heart">♥</span>
+
+  </div>
+</body>
+</html>

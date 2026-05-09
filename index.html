@@ -7,6 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
         <style>
             * {
                 margin: 0;
@@ -129,10 +130,22 @@
         }
 
         .letter-view-container {
+            .letter-view-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 700px;
+            overflow-y: auto;
+            max-height: 100vh;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        }
+        .letter-view-container::-webkit-scrollbar {
+            display: none;
         }
 
         .back-btn {
@@ -176,7 +189,7 @@
             gap: 1.5rem;
             padding: 2rem;
             width: 100%;
-            max-width: 700px;
+            max-width: 900px;
             overflow-y: auto;
             max-height: 100vh;
         }
@@ -185,16 +198,18 @@
             font-size: 5rem;
         }
 
-        .paper-card {
+       .paper-card {
             background: #fffdf9;
             border-radius: 16px;
             padding: 3rem;
             width: 100%;
+            max-width: 850px;
             box-shadow: 0 8px 40px rgba(194, 24, 91, 0.15);
             border: 1px solid #f4c0d1;
         }
 
         .paper-from {
+            grid-column: 1 / -1;
             font-family: 'Great Vibes', cursive;
             font-size: 2.5rem;
             color: #c2185b;
@@ -203,6 +218,7 @@
         }
 
         .paper-divider {
+            grid-column: 1 / -1;
             width: 60%;
             height: 1px;
             background: #f4c0d1;
@@ -210,6 +226,7 @@
         }
 
         .paper-text {
+            grid-column: 2 / 3;
             font-size: 1rem;
             color: #4a0020;
             line-height: 2;
@@ -217,21 +234,181 @@
         }
 
         .paper-photos {
+            grid-column: 1 / -1;
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: 2rem;
             justify-content: center;
         }
-
         .paper-photos img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 12px;
-            border: 3px solid #f4c0d1;
+            border-radius: 4px;
+            border: 6px solid white;
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .paper-photos img:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+
+        .paper-photos img:nth-child(even) {
+            transform: rotate(2deg);
+        }
+        .photos-left, .photos-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .polaroid {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 6px solid white;
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .photos-left .polaroid:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+
+        .photos-left .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .photos-right .polaroid:nth-child(odd) {
+            transform: rotate(2deg);
+        }
+
+        .photos-right .polaroid:nth-child(even) {
+            transform: rotate(-2deg);
+        }
+        .special-card {
+            background: #fdf8f2;
+            max-width: 600px;
+            width: 100%;
+            padding: 60px 64px;
+            position: relative;
+            box-shadow: 0 4px 40px rgba(120, 80, 30, 0.12);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            animation: fadeIn 1.2s ease both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .special-card::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px solid #c9a96e;
+            pointer-events: none;
+        }
+
+        .special-card::after {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 0.5px dashed #c9a96e;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .special-salutation {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 26px;
+            font-weight: 500;
+            color: #7a4f2d;
+            text-align: center;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .special-body {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 17px;
+            line-height: 1.9;
+            color: #3d2b1a;
+            text-align: center;
+        }
+
+        .special-stanza {
+            margin-bottom: 24px;
+        }
+
+        .special-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .special-divider::before, .special-divider::after {
+            content: '';
+            flex: 1;
+            max-width: 120px;
+            height: 0.5px;
+            background: #c9a96e;
+            opacity: 0.7;
+        }
+
+        .special-diamond {
+            width: 6px;
+            height: 6px;
+            background: #c9a96e;
+            transform: rotate(45deg);
+            margin: 0 10px;
+        }
+
+        .special-closing-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            opacity: 0.6;
+        }
+
+        .special-closing-divider::before, .special-closing-divider::after {
+            content: '';
+            width: 60px;
+            height: 0.5px;
+            background: #c9a96e;
+        }
+
+        .special-closing-dot {
+            width: 4px;
+            height: 4px;
+            background: #c9a96e;
+            border-radius: 50%;
+            margin: 0 8px;
+        }
+
+        .special-signature {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 18px;
+            color: #7a4f2d;
+            text-align: center;
+            font-style: italic;
+            line-height: 2;
+        }
+
+        .special-heart {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 12px;
+            color: #e8a0a0;
         }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     </head>
     <body>
         <div id="cover-page" class="page">
@@ -350,7 +527,9 @@
             <div class="paper-card">
                 <h2 class="paper-from" id="letter-from-name"></h2>
                 <div class="paper-divider"></div>
+                <div class="photos-side" id="photos-left"></div>
                 <p class="paper-text" id="letter-body"></p>
+                <div class="photos-side" id="photos-right"></div>
                 <div class="paper-photos" id="letter-photos"></div>
             </div>
             <button class="back-btn" onclick="goBack()">← Back to Letters</button>
@@ -363,63 +542,93 @@
             {
                 name: "Amino 🌺",
                 letter: "Happy Birthday Sania Bhabhi, the first and the best (Don't tell anyone else). Ever since you came into our family that afternoon when I was 6 or 7 years old, you have been making everyone's lives better. From buying me soda as a kid, to playing carrom and Sathiyo. From making caramel pudding to ordering checkers pizza every time I arrive. I truly appreciate every moment we have had together. I hope you live to see more of this world than you ever thought possible because the world is a better place with you in it. Have a great day, enjoy it to the fullest",
-                photos: []
+                photos: ['letters/amino/amino 1.jpeg']
             },
             {
                 name: "Felisha 💛",
                 letter: "Happy Birthday to the woman who started as my sister-in-law and quickly upgraded herself to bonus sister, confidante in times when needed, and certified rattansi khandhans superstar! 🎉✨\n\nI may not be intouch all the time, and at times even go AWOL lol but know that im greatful to have you in my life as not my bhabhi but a dear sister. We have shared many good memories together from the moment you tied the knot with falu, from living together, eid shopping for same same Punjabis, to going out late night in falus alteza, Saturday lunches, eid biriyanis, late night ghapshaps.. making falu stressed before his time lol.. I can say those were the most memorable moments in my life.\n\nNow we have grown older, less skinny then we used to be 🤪 and busier then before where life was so simple but in spite of the distance and lack of communication lol our bond is still the same as it used to be ages ago( I dont know how many years have passed 🤭)\n\nThank u for being the kind of person who brings good vibes and laughter wherever u go, who listens without judgement, loves without limits, and always taking my side even when im wrong. Falus home is more fun, louder, warmer, and far more interesting because you're in it—and I wouldn't trade you for anything not even my own brother.\n\nMay this year bring you laughter that makes your cheeks hurt, blessings that make your heart full, and surprises that are the kheir kind. May your days be joyful, your worries be small, and your celebrations be as fabulous as you are.\n\nHappy Birthday, sania! Never forget how loved you are—not just today, but always. Now go enjoy your day like the queen you are 👑🎂\n\nWith love and lots of birthday cheer,\nFelisha 😘😘😘😘😘",
-                photos: []
+                photos: ['letters/felisha/felisha photo 1.jpeg', 'letters/felisha/felisha photo 2.jpeg', 'letters/felisha/felisha photo 3.jpeg', 'letters/felisha/felisha photo 4.jpeg']
             },
             {
                 name: "Hiloni 🌸",
                 letter: "Dear Sania,\n\n17 years of knowing you, and it still feels like we're just two people who understand each other without needing to say much. We've shared so many moments the good, the messy, the serious, and the silly and through all of it, we've always had each other.\n\nYou are not just my sister-in-law, you are truly a sister from another mother. The way you care for my children and hold this family together means more to me than I can ever fully express.\n\nI honestly can't imagine life without you in it. You mean so much to me, in ways I don't always say out loud.\n\nWith all my love ❤️\nHiloni",
-                photos: []
+                photos: ['letters/hiloni/hiloni and nurry photo 1.jpeg', 'letters/hiloni/hiloni photo 3.jpeg', 'letters/hiloni/hiloni phto 4.jpeg', 'letters/hiloni/hioli photo 2.jpeg']
             },
             {
                 name: "Annie 🌼",
                 letter: "My Dhingli My Mithi Sanu,\n\nHappy Birthday to the most beautiful storm I know.\n\nToday I celebrate you — not just for the years you've lived, but for the incredible person you are. You have one of the kindest hearts I've ever known. You give so much of yourself to the people you love, without expecting anything in return. Your generosity, your strength, and your loyalty are gifts that everyone around you is lucky to experience.\n\nYou are strong in ways many people don't even notice. Life has thrown challenges at you, yet you continue to stand tall, protect the people you love, and keep moving forward with courage. I admire that strength more than words can explain.\n\nAnd yes… you do have a temper like a volcano. Fierce, loud, impossible to ignore. But even your fire comes from passion, love, and the depth of your heart. That fire is part of what makes you unforgettable. It means you feel deeply, love deeply, and protect fiercely. I wouldn't change that about you even if I could.\n\nEven though miles separate us and we may be far from each other physically, you have always remained the closest person to my heart. Distance has never changed our bond. No matter where life takes us, I carry you with me every single day. You are not just my little sister — you are a piece of my soul.\n\nYou have given us one of the greatest blessings in this world - my beautiful nieces — Sarah, Naila, and Zoya. Those girls are pure light, love, and joy, and they are a reflection of the incredible mother and woman you are. They are my whole world, and loving them is one of the greatest gifts you have ever given me.\n\nAnd then of course… there's Falu who is older to me ofcourse. Honestly, any man who survives your volcanic temper deserves some kind of lifetime achievement award. We may joke about him, tease him endlessly, and blame him for random things for entertainment, but truthfully, having him in our lives has been such a blessing. Thank you for giving us a brother-in-law who loves you, stands by you, and somehow manages to keep up with all the madness in this family.\n\nNo matter how much we argue, laugh, annoy each other, or drive each other crazy sometimes, one thing will never change — I love you endlessly. I am grateful for every memory we share, every lesson, every laugh, and every moment that made us sisters and buddies for life.\n\nAs you turn 38, I hope life gives you back even a fraction of the love and goodness you pour into others every day. You deserve happiness, peace, success, and all the beautiful things your heart desires.\n\nKeep shining, keep fighting, keep loving, and keep being exactly who you are.\n\nHappy Birthday, my little one.\nI love you more than words will ever fully express.\n\nWith all my love,\nyour Didi Annie",
-                photos: []
+                photos: ['letters/annie/annie photo 1.jpeg', 'letters/annie/annie photo 2.jpeg', 'letters/annie/annie photo 3.jpeg', 'letters/annie/annie photo 4.jpeg']
             },
             {
                 name: "Zaheer ⭐",
-                letter: "Letter coming soon... 💌",
+                letter: "Dear Saaniya,\n\nHappy Birthday! You're honestly one of the kindest and funniest people to be around, and you always knowhow to make everyone laugh. Life would definitely be a little quieter and less entertaining without you around.\n\nYou've also been very lucky in life — not everyone gets blessed with such a great brother-in-law 😄\n\nMay Allah bless you with lots of happiness, good health, success, and endless barakah in the year ahead. Wishing you a truly amazinng birthday and many more beautiful years, Insha'Allah 🤍",
                 photos: []
             },
             {
                 name: "Suhail 🌙",
                 letter: "Happy Birthday to my favorite lookout! I was thinking today about all those times we were 'studying' and I'd fall asleep, only for you to wake me up in a panic the second you heard the door opening. Thank you for saving me from so many scoldings back then—and for always being someone I can count on today. Love you!",
-                photos: []
+                photos: ['letters/suhail/suhail photo 1.jpeg', 'letters/suhail/suhail photo 2.jpeg', 'letters/suhail/suhail photo 3.jpeg']
             },
             {
                 name: "Saida 🌹",
-                letter: "Letter coming soon... 💌",
-                photos: []
+                letter: "Happy Birthday to my wonderful sister-in-law who is just always younger sister!\n\nI was just sitting here thinking about all the memories we share, and i couldn't help but laugh out loud remembering how you used to tease me with \"Mera Bhai Tera Jaan\"\n\nThose little moments and your constant energy always made things more fun til today.",
+                photos: ['letters/saida/saida 1.jpeg']
             },
             {
                 name: "Mama 💖",
                 letter: "Letter coming soon... 💌",
-                photos: []
+                photos: ['letters/mama/nani 1.jpeg', 'letters/mama/nani 2.jpeg', 'letters/mama/nani 3.jpeg', 'letters/mama/nani 4.jpeg']
             },
             {
                 name: "Nilu 🦋",
                 letter: "Happy birthday to the woman who truly keeps our family together. Thank you for always being there for me whether I need advice or just someone to hear me. I am so lucky to have you here with me and to have someone who takes care of me and who cares for me more than themselves, the person who's a nurse when everyone gets sick, a person who is willing to give their everything to make sure everyone else is happy, a person who is always there and always understands and listens, a person to call your best friend. We may have our moments and we may argue a lot but at the end our love for eachother is always stronger than all the fights. I may not be your favorite or maybe I am? Who knows? But I will always have a bigger section for you in my heart. For my mama who used to come back home from work tired yet still sat down to make us eat with your hands, my mama who will sacrifice her needs and wants just to fulfill ours. Happy birthday to the best mama ever.\n\nLove,\n~ nilu💞",
-                photos: []
+                photos: ['letters/nilu/naila photo 1.jpeg', 'letters/nilu/naila photo 2.jpeg', 'letters/nilu/naila photo 3.jpeg', 'letters/nilu/naila photo 4.jpeg', 'letters/nilu/nilu 5.jpeg']
             },
             {
                 name: "Nurry 🤍",
                 letter: "Happy birthday to my daughter sania u are very adorable u are very kind hearted and u are the one of the best person love u so much mwaa. love u mingi mingi",
-                photos: []
+                photos: ['letters/nurry (MIL)/hiloni and nurry photo 1.jpeg', 'letters/nurry (MIL)/nurry photo 2.jpeg', 'letters/nurry (MIL)/nurry photo 3.jpeg', 'letters/nurry (MIL)/nurry photo 4.jpeg']
             },
             {
                 name: "Falu 🌿",
-                letter: "Letter coming soon... 💌",
-                photos: []
+                letter: "special",
+                photos: ['letters/falu/papa photo 1.jpeg', 'letters/falu/papa 2.jpeg', 'letters/falu/papa 1.jpeg', 'letters/falu/papa photo 4.jpeg', 'letters/falu/papa photo 3.jpeg']
             },
             {
-                name: "Sabiha 💜",
-                letter: "Letter coming soon... 💌",
-                photos: []
-            },
+                name: "Important people 💜",
+                letter: "Don't worry mama, we didn't forget everyone else that is important to you",
+              photos: [
+    'letters/everyone else/wadi nani 4.jpeg',
+    'letters/everyone else/pakistan 3.jpeg',
+    'letters/everyone else/shami fua 1.jpeg',
+    'letters/everyone else/shami fua 2.jpeg',
+    'letters/everyone else/pakistan 1.jpeg',
+    'letters/everyone else/pakistan 2.jpeg',
+    'letters/everyone else/pakistan 4.jpeg',
+    'letters/everyone else/pakistan 5.jpeg',
+    'letters/everyone else/pakistan.jpeg',
+    'letters/everyone else/wadi nani 2.jpeg',
+    'letters/everyone else/wadi nani photo.jpeg',
+    'letters/everyone else/nanu 1.jpeg',
+    'letters/everyone else/nanu 2.jpeg',
+    'letters/everyone else/airport 2.jpeg',
+    'letters/everyone else/airport.jpeg',
+    'letters/everyone else/annie&mama.jpeg',
+    'letters/everyone else/baby mama.jpeg',
+    'letters/everyone else/baby.jpeg',
+    'letters/everyone else/birthday.jpeg',
+    'letters/everyone else/child.jpeg',
+    'letters/everyone else/children.jpeg',
+    'letters/everyone else/family pic.jpeg',
+    'letters/everyone else/mamu.jpeg',
+    'letters/everyone else/nani&mama.jpeg',
+    'letters/everyone else/scarf.jpeg',
+    'letters/everyone else/siblings wedding.jpeg',
+    'letters/everyone else/sisters forever.jpeg',
+    'letters/everyone else/tiny mama.jpeg',
+    'letters/everyone else/whole family.jpeg'
+]
+},
             {
                 name: "Sakina 🌷",
                 letter: "Letter coming soon... 💌",
@@ -428,7 +637,7 @@
             {
                 name: "Sarah ✨",
                 letter: "Dear mama,\n\nHappy birthday mama, writing this letter took a lot of writing and erasing because I wanted it to be perfect for you, I was honestly thinking of using chat gpt but then I realized that this letter doesn't have to be perfect it just needs to be authentic. I've been trying to find the right words to write this, and honestly no words can ever express how much you mean to me and everything you have done for not only me but our whole family. I know sometimes we don't express how grateful we are for you but I'm sure if you weren't in our life we would break down because you're the bond that's holding this whole family together.\n\nI don't this I will every fully understand how much you have sacrificed for our family, but I know it's a lot. I see the little things you do, things that people on the outside would miss. The way you put others before you, the way you make sure everyone in the family gets what they want even if it leads to you not getting what you want, you pushing away your needs and wants just to fulfil ours, the way you carry so much without even complaining, the way you take care of all of us when we are sick even though you are also sick, the way you manage to care for everyone even when you're tired. All these things are just the surface of what you do and if I went in depth about everything you did, I would have to write a whole book with multiple series.\n\nSometimes I sit and think what I would do without you in my life. When I go to Dubai, who will I run to when things get hard? Whose laps will I go to sleep on when I just returned from school? Who will I go see as soon as I come back from a horrible day at school? Who will I go to when I need a hug because my friends betrayed me? Who will take care of me when I'm sick? Who will sense my mood by just looking at me? And who will I do panchat with about things going on in school and at home? I don't think I say this enough mama, but I will miss you so much. I know I don't express this enough and I'm sorry for that.\n\nI wanted to also express how thankful I am for you mama. Thank you for everything you have done for me. Thank you for loving me the way you do, for believing in me and for always being there, even when sometimes I don't deserve it.\n\nI don't say this enough, but I truly don't know what I would do without you.\n\nI love you more than words will ever be able to explain.\n\nHappy birthday my sweet mama.\n\nLove you always,\nYour forever little baby Sarah.",
-                photos: []
+                photos: ['letters/sarah/sarah 5.jpeg', 'letters/sarah/sarah photo 1.jpeg', 'letters/sarah/sarah photo 2.jpeg', 'letters/sarah/sarah photo 3.jpeg', 'letters/sarah/sarah photo 4.jpeg']
             },
             {
                 name: "Seif 🏅",
@@ -438,7 +647,7 @@
             {
                 name: "Shai Fui 🍀",
                 letter: "Dear Sania - you are the sunshine in my life - providing that warmth / care and support much needed on a cold dark winter morning!!!!\n\nYou are my go to person!!!\n\nI wish you a very happy birthday and may Mowla Bapa always keep you under his protection.\n\nVery Many Happy Returns of the day!!!!\n\nBless you always\nShai Fui.",
-                photos: []
+                photos: ['letters/shai fui/shai  fui photo 2.jpeg', 'letters/shai fui/shai fui photo 1.jpeg', 'letters/shai fui/shai fui photo 3.jpeg', 'letters/shai fui/shai fui photo 4.jpeg']
             },
             {
                 name: "Shanu 🧡",
@@ -452,31 +661,127 @@
             },
             {
                 name: "Zoya 🌙",
-                letter: "Letter coming soon... 💌",
-                photos: []
+                letter: "Dear mummy,\n\nyou are my world if whenever i sang u would laugh i would sing forever when i see u i light up you are the love in my heart and happy in my happiness and know whenever u need me just think of me and i am here, u support our family and you are my super hero it is because of you i am here in life you made me your daughter and i feel like i do not deserve it. In happiness and in sadness u were with me and helped me I trust u the most and i wish u a VERY HAPPY BIRTHDAY its like me getting a present u are with me in every step, the most looking forward day is your bday, and some times i think 8 planets, 1 earth, 195 countries, 570 citys, 7 continents, 8.3 billion people how have i met you the master, the best person in the world.",
+                photos: ['letters/zoya/zoya photo 1.jpeg', 'letters/zoya/zoya photo 2.jpeg', 'letters/zoya/zoya photo 3.jpeg', 'letters/zoya/zoya 6.jpeg', 'letters/zoya/zoya photo 5.jpeg']
             }
         ];
             function showLettersPage() {
             document.getElementById('cover-page').style.display = 'none';
             document.getElementById('letters-page').style.display = 'flex';
         }
-        function openLetter(index) {
+       function openLetter(index) {
             const letter = letters[index];
+
+            if (letter.letter === "special") {
+                showFaluLetter(letter.photos);
+                return;
+            }
+
             document.getElementById('letter-from-name').textContent = letter.name;
-            document.getElementById('letter-body').textContent = letter.letter;
             
+            const letterBody = document.getElementById('letter-body');
+            if (letter.letter === "") {
+                letterBody.style.display = 'none';
+            } else {
+                letterBody.style.display = 'block';
+                letterBody.textContent = letter.letter;
+            }
+
             const photosDiv = document.getElementById('letter-photos');
             photosDiv.innerHTML = '';
-            letter.photos.forEach(photo => {
+            letter.photos.forEach((photo) => {
                 const img = document.createElement('img');
                 img.src = photo;
+                img.className = 'polaroid';
                 photosDiv.appendChild(img);
             });
 
             document.getElementById('letters-page').style.display = 'none';
             document.getElementById('letter-view').style.display = 'flex';
         }
+
+        function showFaluLetter(photos) {
+            confetti({
+                particleCount: 300,
+                spread: 160,
+                origin: { y: 0.4 },
+                colors: ['#ff85a1', '#ffb7c5', '#ff9a9e', '#ffd700', '#fff', '#c2185b']
+            });
+            setTimeout(() => confetti({
+                particleCount: 200,
+                spread: 120,
+                origin: { y: 0.6 },
+                colors: ['#ff85a1', '#ffb7c5', '#ffd700', '#fff']
+            }), 800);
+
+            const music = new Audio('letters/falu/music.mp3');
+            music.volume = 0.3;
+            music.loop = true;
+            music.play();
+            window.faluMusic = music;
+            document.getElementById('letters-page').style.display = 'none';
+            document.getElementById('letter-view').style.display = 'flex';
+            document.getElementById('letter-from-name').textContent = '';
+            document.getElementById('letter-body').style.display = 'none';
+            
+            const photosDiv = document.getElementById('letter-photos');
+            photosDiv.innerHTML = '';
+
+            const specialCard = document.createElement('div');
+            specialCard.className = 'special-card';
+            specialCard.innerHTML = `
+                <div class="special-corner tl"></div>
+                <div class="special-corner tr"></div>
+                <div class="special-corner bl"></div>
+                <div class="special-corner br"></div>
+                <div class="special-divider"><div class="special-diamond"></div></div>
+                <p class="special-salutation">My love,</p>
+                <div class="special-body">
+                    <div class="special-stanza">
+                        I have been trying to find the right words for you,<br>
+                        and I keep coming back to this simple truth —<br>
+                        you are the best thing that has ever happened to me.
+                    </div>
+                    <div class="special-stanza">
+                        Since 2007, you have walked beside me through everything.<br>
+                        The easy days and the difficult ones, the laughter<br>
+                        and the tears, the ordinary Tuesdays and the moments<br>
+                        that changed us forever. Through all of it, you were there.
+                    </div>
+                    <div class="special-stanza">
+                        You have given me three daughters who carry your kindness,<br>
+                        your grace, and your strength — and in them,<br>
+                        I see you every single day.
+                    </div>
+                    <div class="special-stanza">
+                        I want you to know that I do not take any of it for granted.<br>
+                        Not your patience, not your sacrifice,<br>
+                        and not the quiet, unwavering way you love our family.
+                    </div>
+                    <div class="special-stanza">
+                        On your birthday, my wish is simply this —<br>
+                        that you feel as loved and treasured today<br>
+                        as you have made me feel every day for nearly twenty years.
+                    </div>
+                </div>
+                <div class="special-closing-divider"><div class="special-closing-dot"></div></div>
+                <p class="special-signature">Forever yours,<br>your husband</p>
+                <span class="special-heart">♥</span>
+            `;
+            photosDiv.appendChild(specialCard);
+
+            photos.forEach((photo) => {
+                const img = document.createElement('img');
+                img.src = photo;
+                img.className = 'polaroid';
+                photosDiv.appendChild(img);
+            });
+        }
         function goBack() {
+             if (window.faluMusic) {
+                window.faluMusic.pause();
+                window.faluMusic = null;
+            }
             document.getElementById('letter-view').style.display = 'none';
             document.getElementById('letters-page').style.display = 'flex';
         }
